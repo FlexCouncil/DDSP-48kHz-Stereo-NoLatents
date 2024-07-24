@@ -18,7 +18,7 @@ Autoencoder.preprocessor = @preprocessing.DefaultPreprocessor()
 DefaultPreprocessor.time_steps = 800
 
 # Encoder
-Autoencoder.encoder = @encoders.MfccTimeDistributedRnnEncoder()
+Autoencoder.encoder = None
 MfccTimeDistributedRnnEncoder.rnn_channels = 512
 MfccTimeDistributedRnnEncoder.rnn_type = 'gru'
 MfccTimeDistributedRnnEncoder.z_dims = 16
@@ -30,9 +30,9 @@ RnnFcDecoder.rnn_channels = 512
 RnnFcDecoder.rnn_type = 'gru'
 RnnFcDecoder.ch = 512
 RnnFcDecoder.layers_per_stack = 3
-RnnFcDecoder.input_keysM = ('ld_scaledM', 'f0_scaledM', 'zM')
-RnnFcDecoder.input_keysL = ('ld_scaledL', 'f0_scaledL', 'zL')
-RnnFcDecoder.input_keysR = ('ld_scaledR', 'f0_scaledR', 'zR')
+RnnFcDecoder.input_keysM = ('ld_scaledM', 'f0_scaledM')
+RnnFcDecoder.input_keysL = ('ld_scaledL', 'f0_scaledL')
+RnnFcDecoder.input_keysR = ('ld_scaledR', 'f0_scaledR')
 RnnFcDecoder.output_splitsM = (('amps', 1), ('harmonic_distribution', 120), ('noise_magnitudes', 65))
 RnnFcDecoder.output_splitsL = (('amps', 1), ('harmonic_distribution', 120), ('noise_magnitudes', 65))
 RnnFcDecoder.output_splitsR = (('amps', 1), ('harmonic_distribution', 120), ('noise_magnitudes', 65))
